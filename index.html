@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Random Touhou</title>
+        <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="js/lib/jquery.min.js"></script>
+        <script src="js/lib/jcanvas.min.js"></script>
+        <script src="js/lib/bootstrap.min.js"></script>
+        <script src="js/index.js"></script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="d-inline-flex align-items-start">
+                <div id="cp">
+                    <div id="cp-game" class="d-flex">
+                        <div id="cp-game-all" class="d-flex flex-column m-4">
+                            <input type="checkbox" id="game-all" class="btn-check"/>
+                            <label for="game-all" class="btn btn-outline-primary">Select all</label>
+                        </div>
+                        <div id="cp-game-pc98" class="d-flex flex-column m-4"></div>
+                        <div id="cp-game-main" class="d-flex flex-column m-4"></div>
+                        <div id="cp-game-sp1" class="d-flex flex-column m-4"></div>
+                        <div id="cp-game-sp2" class="d-flex flex-column m-4"></div>
+                    </div>
+                </div>
+                <div>
+                    <canvas id="canvas" class="border border-1"></canvas>
+                    <div id="roll-result" class="text-center d-flex align-items-center justify-content-center">
+                        <span></span>
+                    </div>
+                    <div id="cp-action" class="d-flex flex-column">
+                        <button type="button" id="cp-action-clear" class="btn btn-secondary my-2">Clear result</button>
+                        <button type="button" id="cp-action-roll" class="btn btn-success my-2">Roll</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

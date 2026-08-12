@@ -1,0 +1,11 @@
+#cp-game > div > div {
+    margin: 4px;
+}
+
+#canvas {
+    border-color: grey !important;
+}
+
+#roll-result {
+    height: 48px;
+}
