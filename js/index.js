@@ -154,8 +154,8 @@ function initTh() {
         img.src = `assets/cover/${th}.jpg`;
         thImg[th] = img;
     }
-    thSeSelect = new Audio("assets/sfx/se_select00.wav");
-    thSeConfirm = new Audio("assets/sfx/se_extend.wav");
+    thSeSelect = new Audio("assets/sfx/buble04.wav");
+    thSeConfirm = new Audio("assets/sfx/power23.wav");
 
     loadSelection();
 }
