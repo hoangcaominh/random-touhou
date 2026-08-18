@@ -40,7 +40,7 @@ const THLIST = [
     TH16, TH165, TH17, TH175, TH18, TH185, TH19,
     TH20
 ];
-const THSUPPORTED = [ TH06, TH07, TH08, TH09, TH10, TH11, TH12, TH13, TH14, TH15, TH16, TH17, TH18, TH20, TH128 ]
+const THLIST_SUPPORTED = [ TH06, TH07, TH08, TH09, TH10, TH11, TH12, TH13, TH14, TH15, TH16, TH17, TH18, TH20, TH128 ]
 const THCAT = {
     pc98: [ TH01, TH02, TH03, TH04, TH05 ],
     main: [ TH06, TH07, TH08, TH09, TH10, TH11, TH12, TH13, TH14, TH15, TH16, TH17, TH18, TH19, TH20 ],
@@ -132,7 +132,7 @@ function initCP() {
 
     for (let cat of Object.keys(THCAT))
         for (let th of THCAT[cat]) {
-            if (!THSUPPORTED.includes(th))
+            if (!THLIST_SUPPORTED.includes(th))
                 continue;
             $(`#cp-game-${cat}`).append($("<div>").append(
                 $("<input>", {
@@ -154,7 +154,7 @@ function initCP() {
 }
 
 function initTh() {
-    for (let th of THLIST) {
+    for (let th of THLIST_SUPPORTED) {
         const img = new Image();
         img.src = `assets/menu/${th}.jpg`;
         img.onerror = () => { thImg[th] = null; };
@@ -184,7 +184,7 @@ function initEv() {
 
         let thSelected = [];
         let thChosen;
-        for (let th of THLIST)
+        for (let th of THLIST_SUPPORTED)
             if (thChecked[th])
                 thSelected.push(th);
         if (thSelected.length == 0) {
