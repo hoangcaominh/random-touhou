@@ -40,6 +40,7 @@ const THLIST = [
     TH16, TH165, TH17, TH175, TH18, TH185, TH19,
     TH20
 ];
+const THSUPPORTED = [ TH06, TH07, TH08, TH09, TH10, TH11, TH12, TH13, TH14, TH15, TH16, TH17, TH18, TH20, TH128 ]
 const THCAT = {
     pc98: [ TH01, TH02, TH03, TH04, TH05 ],
     main: [ TH06, TH07, TH08, TH09, TH10, TH11, TH12, TH13, TH14, TH15, TH16, TH17, TH18, TH19, TH20 ],
@@ -102,6 +103,8 @@ function loadSelection() {
 }
 
 function drawImage(img) {
+    if (img == null)
+        return;
     const cw = $("#canvas")[0].width;
     const ch = $("#canvas")[0].height;
     const scale = Math.min(cw / img.width, ch / img.height);
@@ -129,6 +132,8 @@ function initCP() {
 
     for (let cat of Object.keys(THCAT))
         for (let th of THCAT[cat]) {
+            if (!THSUPPORTED.includes(th))
+                continue;
             $(`#cp-game-${cat}`).append($("<div>").append(
                 $("<input>", {
                     type: "checkbox",
@@ -151,8 +156,9 @@ function initCP() {
 function initTh() {
     for (let th of THLIST) {
         const img = new Image();
-        img.src = `assets/cover/${th}.jpg`;
-        thImg[th] = img;
+        img.src = `assets/menu/${th}.jpg`;
+        img.onerror = () => { thImg[th] = null; };
+        img.onload = () => { thImg[th] = img; };
     }
     thSeSelect = new Audio("assets/sfx/buble04.wav");
     thSeConfirm = new Audio("assets/sfx/power23.wav");
@@ -233,7 +239,7 @@ $(() => {
     initEv();
 
     $("#canvas").attr({
-        width: 600,
-        height: 600,
+        width: 640,
+        height: 480,
     });
 });
